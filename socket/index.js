@@ -1,7 +1,7 @@
 /*
  * @Author: socket处理
  * @Date: 2020-02-29 11:01:27
- * @LastEditTime: 2020-02-29 11:14:58
+ * @LastEditTime: 2020-03-02 17:01:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tchat-servers\socket\index.js
@@ -13,6 +13,7 @@ const messageHandle = require("./message");
 const searchHandle = require("./search");
 const socketHandle = require("./socket");
 const userHandle = require("./user");
+const uploadHandle = require("./upload");
 const verifyToken = require("../middlewares/verifyToken");
 
 module.exports = io => {
@@ -35,6 +36,7 @@ module.exports = io => {
     messageHandle(io,socket,id);
     searchHandle(io,socket,id);
     socketHandle(io,socket,id);
+    uploadHandle(io,socket,id);
     userHandle(io,socket,id);
   });
 }
